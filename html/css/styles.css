@@ -1,0 +1,168 @@
+body {
+    font-family: Arial,Helvetica,Verdana,"Bitstream Vera Sans",sans-serif;
+}
+
+.top-header {
+	display: inline-block;
+	width: 100%;
+	height: 110px;
+}
+
+.logo img {
+	width: 250px;
+}
+
+.search input {
+	float: left;
+	display: inline;
+	margin-top: 35px;
+	width: 85%;
+}
+
+.search button {
+	float: left;
+	display: inline-block;
+	margin-top: 35px;
+	margin-left: -5px;
+	border-radius: 0 5px 5px 0;
+}
+
+.shopping-cart {
+	color: white;
+	background-color: #d00;
+	float: right;
+	margin-top: 37px;
+	line-height: 34px;
+	padding: 0 5px;
+	border-radius: 5px;
+}
+
+.shopping-cart i {
+	font-size: 20px;
+}
+
+a.shopping-cart:hover {
+	color: #fff !important;
+	text-decoration: none !important;;
+}
+
+.top-right {
+	float: right;
+	padding: 5px;
+}
+
+.banner {
+	position: relative;
+	width: 100%;
+}
+
+.banner .bg-header {
+	width: 100%;
+}
+
+.banner .logo {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
+.banner .slogan {
+	position: absolute;
+	top: 25px;
+	left: 120px;
+}
+
+.content {
+	margin: 0 auto;
+	max-width: 1024px;
+}
+
+.carousel-item img {
+	width: 100%;
+	height: 250px;
+}
+
+.lst-title {
+	position: relative;
+	margin-top: 25px;
+}
+
+.lst-title h4 {
+	color: #f00;
+	border-bottom: solid 2px #80bdff;
+}
+
+.lst-title a, .lst-title a:hover {
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: #f00;
+	text-decoration: none;
+}
+
+.home-banner .left-item {
+	width: 66.67%;
+	padding: 13px;
+	float: left;
+}
+
+.home-banner .left-item img {
+	width: 100%;
+	height: 100%;
+}
+
+.home-banner .right-item {
+	width: 33.33%;
+	padding: 13px 13px 13px 0;
+	float: left;
+}
+
+.home-banner .right-item img {
+	width: 100%;
+	height: 100%;
+}
+
+.lst-items {
+	padding: 0;
+	text-align: center;
+}
+
+.lst-items li {
+	list-style: none;
+	border: solid 1px #e3e3e3;
+	display: inline-block;
+	margin: 0 5px;
+}
+
+.lst-items li img {
+	display: block;
+	margin: 0 auto;
+}
+
+.lst-items li .desc {
+	display: block;
+	padding: 5px;
+	font-size: 13px;
+	text-align: left;
+}
+
+.lst-items li .p-price {
+	color: #f00;
+	font-size: 14px;
+	font-weight: bold;
+	display: inline-block;
+	padding: 5px;
+	width: 48%;
+}
+
+.lst-items li .p-old-price {
+	font-size: 14px;
+	display: inline-block;
+	padding: 5px;
+	width: 48%;
+	text-decoration: line-through;
+}
+
+.owl-carousel .owl-item img {
+	width: auto !important;
+}
