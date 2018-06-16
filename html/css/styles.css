@@ -272,3 +272,7 @@ a.add-cart:hover {
 .table-cart th, .table-cart td {
 	text-align: center;
 }
+.form-wrapper {
+	border: solid 1px #dee2e6;
+	padding: 20px;
+}
