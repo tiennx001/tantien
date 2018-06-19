@@ -111,26 +111,40 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 form-wrapper">
-                    <div class="col-md-12">
-                        <label for="fullname">Họ và tên (*)</label>
-                        <input id="fullname" name="fullname" class="form-control" />
-                    </div>
-                    <div class="col-md-6">
-                        <label for="phone">Điện thoại liên hệ (*)</label>
-                        <input id="phone" name="phone" class="form-control" />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="fullname">Họ và tên (*)</label>
+                            <input id="fullname" name="fullname" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="phone">Điện thoại liên hệ (*)</label>
+                            <input id="phone" name="phone" class="form-control" />
+                        </div>
                     </div>
                     <hr/>
-                    <div class="col-md-4">
-                        <label for="city">Tỉnh/huyện (*)</label>
-                        <input id="city" name="city" class="form-control" />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="city">Tỉnh/Thành phố (*)</label>
+                            <select id="city" name="city" class="form-control">
+                                <option value="">Hà Nội</option>
+                                <option value="">TP. Hồ Chí Minh</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="district">Quận/Huyện (*)</label>
+                            <select id="district" name="district" class="form-control">
+                                <option value="">Quận 1</option>
+                                <option value="">Quận 8</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="address">Địa chỉ chi tiết (*)</label>
+                            <input id="address" name="address" class="form-control" />
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <label for="city">Tỉnh/huyện (*)</label>
-                        <input id="city" name="city" class="form-control" />
-                    </div>
-                    <div class="col-md-4">
-                        <label for="city">Tỉnh/huyện (*)</label>
-                        <input id="city" name="city" class="form-control" />
+                    <br/>
+                    <div class="row text-center">
+                        <div class="col-md-12"><button class="btn btn-primary" type="submit">Xác nhận</button></div>
                     </div>
                 </div>
             </div>
