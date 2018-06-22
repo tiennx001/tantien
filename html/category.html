@@ -8,10 +8,12 @@
     <link type="text/css" rel="stylesheet" media="all" href="css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" media="all" href="css/styles.css">
     <link type="text/css" rel="stylesheet" media="all" href="OwlCarousel2-2.3.4/assets/owl.carousel.min.css">
+    <link type="text/css" rel="stylesheet" media="all" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.elevateZoom-3.0.8.min.js"></script>
     <script type="text/javascript" src="OwlCarousel2-2.3.4/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 </head>
 
 <body>
@@ -87,168 +89,58 @@
             <div class="item-filter category-filter" style="margin-left:8px;">
                 <span class="title">Danh mục</span>
                 <ul class="ul">
-
-
                     <li><a href="/bo-vi-xu-ly.html">Bộ vi xử lý</a></li>
-
                     <li><a href="/bo-mach-chu.html">Bo mạch chủ</a></li>
-
                     <li><a href="/bo-nho-trong-linh-kien-pc.html">Bộ nhớ trong</a></li>
-
                     <li><a href="/card-man-hinh.html">Card màn hình</a></li>
-
                     <li><a href="/bo-nguon.html">Nguồn PC</a></li>
-
                     <li><a href="/o-cung-hdd.html">Ổ cứng HDD</a></li>
-
                     <li><a href="/o-cung-ssd.html">Ổ cứng SSD</a></li>
-
                     <li><a href="/vo-case.html">Vỏ Case</a></li>
-
                     <li><a href="/linh-ken-pc-o-dia-quang.html">Ổ đĩa quang</a></li>
-
                     <li><a href="/card-am-thanh.html">Card âm thanh</a></li>
-
-
                 </ul>
             </div>
 
             <div class="item-filter">
-
                 <span class="title">Mức giá</span>
                 <ul class="ul">
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?max=2000000">Dưới 2 triệu (16)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?max=4000000&amp;min=2000000">2 triệu - 4 triệu (34)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?max=6000000&amp;min=4000000">4 triệu - 6 triệu (35)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?max=8000000&amp;min=6000000">6 triệu - 8 triệu (21)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?max=10000000&amp;min=8000000">8 triệu - 10 triệu (18)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?max=12000000&amp;min=10000000">10 triệu - 12 triệu (7)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?max=14000000&amp;min=12000000">12 triệu - 14 triệu (6)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?max=16000000&amp;min=14000000">14 triệu - 16 triệu (10)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?max=18000000&amp;min=16000000">16 triệu - 18 triệu (4)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?max=20000000&amp;min=18000000">18 triệu - 20 triệu (5)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?min=20000000">Trên 20 triệu (24)</a> </li>
-
+                    <li>
+                        <div id="price-slider-range"></div>
+                        <div class="price-text-range">
+                            <input type="text" id="amount" name="price-range" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                            <input type="hidden" id="amount_field" name="price-range-raw" value="4000000-19000000">
+                        </div>
+                    </li>
                 </ul>
-
+                <script type="text/javascript">
+                    $( function() {
+                        $( "#price-slider-range" ).slider({
+                            range: true,
+                            step: 1000000,
+                            min: 0,
+                            max: 100000000,
+                            values: [ 0, 100000000 ],
+                            slide: function( event, ui ) {
+                                $( "#amount" ).val( ui.values[ 0 ] + "đ" + " - " + ui.values[ 1 ] + "đ" );
+                            }
+                        });
+                        $( "#amount" ).val( $( "#price-slider-range" ).slider( "values", 0 ) + "đ" +
+                                " - " + $( "#price-slider-range" ).slider( "values", 1 ) + "đ" );
+                    } );
+                </script>
             </div>
-
-            <!--danh mục phụ kiện id=188 thì bỏ thương hiệu-->
-
-            <div class="item-filter">
-
-                <span class="title">Thương hiệu</span>
-                <ul class="ul">
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?brand=493">FirePro (6)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?brand=1">Asus (55)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?brand=488">Colorful (9)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?brand=69">Gigabyte (60)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?brand=541">HIS (4)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?brand=88">Inno3D (22)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?brand=118">MSI (53)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?brand=269">Quadro (23)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?brand=152">Sapphire (13)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?brand=250">Zotac (1)</a> </li>
-
-                </ul>
-
-            </div>
-
-
-
-
-            <div class="item-filter ">
-
-
-                <span class="title">Chipset</span>
-                <ul class="ul">
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?filter=%2C21251%2C">Nvidia Geforce (178)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?filter=%2C24702%2C">AMD Radeon (68)</a> </li>
-
-                </ul>
-
-
-            </div>
-
-            <div class="item-filter ">
-
-
-                <span class="title">Bộ nhớ</span>
-                <ul class="ul">
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?filter=%2C24091%2C">1Gb (16)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?filter=%2C24093%2C">2Gb (58)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?filter=%2C24097%2C">3Gb (16)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?filter=%2C24094%2C">4Gb (60)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?filter=%2C24096%2C">6Gb (15)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?filter=%2C24095%2C">8Gb (55)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?filter=%2C24098%2C">12Gb (2)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?filter=%2C24089%2C">512Mb (1)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?filter=%2C26423%2C">11Gb (20)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?filter=%2C26431%2C">16Gb (1)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?filter=%2C26449%2C">24Gb (1)</a> </li>
-
-                    <li><a href="https://www.phucanh.vn/card-man-hinh.html?filter=%2C26450%2C">5Gb (1)</a> </li>
-
-                </ul>
-
-
-            </div>
-
-
-
         </div><!--filter-pro-->
         <div class="sort-by">
             <select onchange="location.href=this.value">
                 <option value="">Sắp xếp theo</option>
-
                 <option value="https://www.phucanh.vn/card-man-hinh.html?sort=new">Mới nhất</option>
-
                 <option value="https://www.phucanh.vn/card-man-hinh.html?sort=price-asc">Giá: thấp -&gt; cao</option>
-
                 <option value="https://www.phucanh.vn/card-man-hinh.html?sort=price-desc">Giá: cao -&gt; thấp</option>
-
                 <option value="https://www.phucanh.vn/card-man-hinh.html?sort=view">Xem nhiều nhất</option>
-
                 <option value="https://www.phucanh.vn/card-man-hinh.html?sort=comment">Nhiều nhận xét</option>
-
                 <option value="https://www.phucanh.vn/card-man-hinh.html?sort=rating">Đánh giá cao nhất</option>
-
                 <option value="https://www.phucanh.vn/card-man-hinh.html?sort=name">Tên A-&gt;Z</option>
-
             </select>
         </div>
         <div class="clearfix"></div>

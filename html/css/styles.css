@@ -1,5 +1,13 @@
 body {
-    font-family: Arial,Helvetica,Verdana,"Bitstream Vera Sans",sans-serif;
+	color: #222;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+}
+a:hover {
+	color: #d68437 !important;
+	text-decoration: none !important;;
 }
 .top-header {
 	width: 100%;
@@ -293,7 +301,6 @@ a.add-cart:hover {
 	background: #f5f5f5;
 	box-sizing: border-box;
 	position: relative;
-	z-index: 9991;
 }
 .filter-pro {
 	float: left;
@@ -345,4 +352,39 @@ a.add-cart:hover {
 .item-filter:hover span.title {
 	background: #365899;
 	color: #fff;
+}
+#price-slider-range {
+	margin: 10px;	
+}
+.price-text-range {
+	margin-left: 10px;
+}
+.article-date {
+	font-size: 12px;
+	color: #808080;
+}
+.related-box-title {
+	font-size: 28px;
+	color: #666766;
+}
+.related-item {
+	margin-bottom: 20px;
+}
+.related-article-image {
+	float: left;
+}
+.related-article-title {
+	margin: 5px;
+	font-size: 18px;
+	color: #666766 !important;
+}
+.related-article-date {
+	margin-left: 70px;
+	font-size: 12px;
+	color: #808080;
+}
+.related-article-detail {
+	margin: 5px;
+	font-size: 14px;
+	color: #666766 !important;
 }
