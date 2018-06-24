@@ -1,0 +1,27 @@
+AppBundle\Entity\Order:
+    type: entity
+    table: order
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        order_code: { type: string, length: 50 }
+        origin_price: { type: float }
+        sale_price: { type: float }
+        quantity: { type: integer }
+        transfer_fee: { type: float }
+        total_money: { type: float }
+        total_profit: { type: float }
+        fullname: { type: string, length: 255 }
+        phone: { type: string, length: 20 }
+        email: { type: string, length: 255 }
+        address: { type: string, length: 255 }
+        note: { type: string, length: 255 }
+        customer_id: { type: integer }
+        product_id: { type: integer }
+        order_desc: { type: string, length: 255 }
+        status: { type: integer, lenght: 2, default: 0 }
+        cancel_reason: { type: string, lenght: 255 }
+        created_at: { type: datetime, notnull: true }
+        updated_at: { type: datetime, notnull: true }

@@ -1,0 +1,116 @@
+{% extends 'FrontBundle:Default:index.html.twig' %}
+
+{% block content %}
+    <!--content-->
+    <div class="container">
+        <div class="cont">
+            <div class="content">
+                {% if categories[0] is defined and featureProducts|length > 0 %}
+                    <div class="content-top-bottom">
+                        <h2>{{ categories[0].name }}</h2>
+                        {% if featureProducts[0] is defined %}
+                        <div class="col-md-6 men">
+                            <a href="{{ path('product_detail', {slug: featureProducts[0].slug}) }}" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="{{ featureProducts[0].imageShow|getImage(webPath) }}" alt="">
+                                <div class="b-wrapper">
+                                    <h3 class="b-animate b-from-top top-in   b-delay03 ">
+                                        <span>{{ featureProducts[0].name }}</span>
+                                    </h3>
+                                </div>
+                            </a>
+
+                        </div>
+                        {% endif %}
+                        {% if featureProducts[1] is defined %}
+                        <div class="col-md-6">
+                            <div class="col-md1 ">
+                                <a href="{{ path('product_detail', {slug: featureProducts[1].slug}) }}" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="{{ featureProducts[1].imageShow|getImage(webPath) }}" alt="">
+                                    <div class="b-wrapper">
+                                        <h3 class="b-animate b-from-top top-in1   b-delay03 ">
+                                            <span>{{ featureProducts[1].name }}</span>
+                                        </h3>
+                                    </div>
+                                </a>
+
+                            </div>
+                            {% if featureProducts[2] is defined %}
+                            <div class="col-md2">
+                                <div class="col-md-6 men1">
+                                    <a href="{{ path('product_detail', {slug: featureProducts[2].slug}) }}" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="{{ featureProducts[2].imageShow|getImage(webPath) }}" alt="">
+                                        <div class="b-wrapper">
+                                            <h3 class="b-animate b-from-top top-in2   b-delay03 ">
+                                                <span>{{ featureProducts[2].name }}</span>
+                                            </h3>
+                                        </div>
+                                    </a>
+
+                                </div>
+                                {% if featureProducts[3] is defined %}
+                                <div class="col-md-6 men2">
+                                    <a href="{{ path('product_detail', {slug: featureProducts[3].slug}) }}" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="{{ featureProducts[3].imageShow|getImage(webPath) }}" alt="">
+                                        <div class="b-wrapper">
+                                            <h3 class="b-animate b-from-top top-in2   b-delay03 ">
+                                                <span>{{ featureProducts[3].name }}</span>
+                                            </h3>
+                                        </div>
+                                    </a>
+
+                                </div>
+                                {% endif %}
+                                <div class="clearfix"> </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                        <div class="clearfix"> </div>
+                    </div>
+                {% endif %}
+
+                {% if categories[1] is defined %}
+                    <div class="content-top">
+                        <h1>{{ categories[1].name }}</h1>
+                        <div class="grid-in">
+                            {% for product in newProducts %}
+                            <div class="col-md-3 grid-top simpleCart_shelfItem">
+                                <a href="{{ path('product_detail', {slug: product.slug}) }}" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="{{ product.imageShow|getImage(webPath) }}" alt="">
+                                    <div class="b-wrapper">
+                                        <h3 class="b-animate b-from-left    b-delay03 ">
+                                            <span>{{ product.name }}</span>
+
+                                        </h3>
+                                    </div>
+                                </a>
+                                <p><a href="{{ path('product_detail', {slug: product.slug}) }}">{{ product.name }}</a></p>
+                                <a href="#" class="item_add"><p class="number item_price"><i> </i>{{ serviceHelper.getProductPrice(product) }}</p></a>
+                            </div>
+                            {% endfor %}
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if categories[2] is defined %}
+                    <div class="content-top">
+                        <h1>{{ categories[2].name }}</h1>
+                        <div class="grid-in">
+                            {% for product in creativeProducts %}
+                                <div class="col-md-3 grid-top simpleCart_shelfItem">
+                                    <a href="{{ path('product_detail', {slug: product.slug}) }}" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="{{ product.imageShow|getImage(webPath) }}" alt="">
+                                        <div class="b-wrapper">
+                                            <h3 class="b-animate b-from-left    b-delay03 ">
+                                                <span>{{ product.name }}</span>
+
+                                            </h3>
+                                        </div>
+                                    </a>
+                                    <p><a href="{{ path('product_detail', {slug: product.slug}) }}">{{ product.name }}</a></p>
+                                    <a href="#" class="item_add"><p class="number item_price"><i> </i>{{ serviceHelper.getProductPrice(product) }}</p></a>
+                                </div>
+                            {% endfor %}
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

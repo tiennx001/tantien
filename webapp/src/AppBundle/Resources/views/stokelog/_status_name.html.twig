@@ -1,0 +1,8 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+{% block field %}
+    <div>
+        {% if object.status is not null %}
+            {{ object.statusName  }}
+        {% endif %}
+    </div>
+{% endblock %}

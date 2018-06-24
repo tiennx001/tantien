@@ -1,0 +1,12 @@
+{% for prod in products %}
+<div class=" pro-tp">
+    <div class="pl-lft">
+        <a href="{{ path('product_detail', {slug: prod.slug}) }}"><img class="img-responsive" src="{{ prod.imagePath|getImage(webPath) }}" alt=""></a>
+    </div>
+    <div class="pl-rgt">
+        <h6><a href="{{ path('product_detail', {slug: prod.slug}) }}">{{ prod.name }}</a></h6>
+        <p><a href="{{ path('product_detail', {slug: prod.slug}) }}">{{ serviceHelper.getProductPrice(prod) }}</a></p>
+    </div>
+    <div class="clearfix"></div>
+</div>
+{% endfor %}

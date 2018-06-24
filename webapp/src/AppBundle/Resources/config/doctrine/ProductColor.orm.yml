@@ -1,0 +1,29 @@
+AppBundle\Entity\ProductColor:
+    type: entity
+    repositoryClass: FrontBundle\Model\ProductColorRepository
+    table: product_color
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        product_id: { type: integer }
+        color_id: { type: integer }
+        code: { type: string, length: 255 }
+        status: { type: boolean }
+        images: { type: string, length: 500 }
+        quantity: { type: integer }
+        price: { type: integer, default: 0 }
+    manyToOne:
+      product:
+        targetEntity: Product
+        inversedBy: productColors
+        joinColumn:
+          name: product_id
+          referencedColumnName: id
+      color:
+        targetEntity: Color
+        inversedBy: productColors
+        joinColumn:
+          name: color_id
+          referencedColumnName: id

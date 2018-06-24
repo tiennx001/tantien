@@ -1,0 +1,13 @@
+img.admin-preview {
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.image-wrapper {
+    display: inline-block;
+    margin: 5px;
+}
+
+.btn-remove {
+    float: left;
+}

@@ -1,0 +1,29 @@
+AppBundle\Entity\Color:
+    type: entity
+    repositoryClass: FrontBundle\Model\ColorRepository
+    table: color
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name: { type: string, length: 255 }
+        hex_code: { type: string, length: 255 }
+        icon_path: { type: string, length: 255 }
+        status: { type: boolean }
+    manyToMany:
+      products:
+        targetEntity: Product
+        inversedBy: colors
+        joinTable:
+          name: product_color
+          joinColumns:
+            color_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            product_id:
+              referencedColumnName: id
+    oneToMany:
+      productColors:
+        targetEntity: ProductColor
+        mappedBy: color

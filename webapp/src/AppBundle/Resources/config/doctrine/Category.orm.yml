@@ -1,0 +1,27 @@
+AppBundle\Entity\Category:
+    type: entity
+    repositoryClass: FrontBundle\Model\CategoryRepository
+    table: category
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name: { type: string, length: 255 }
+        description: { type: string, length: 1000 }
+        is_hot: { type: boolean, default: false }
+        status: { type: boolean, default: false }
+        priority: { type: integer, default: 0 }
+        slug: { type: string, length: 255 }
+    manyToMany:
+      products:
+        targetEntity: Product
+        inversedBy: categories
+        joinTable:
+          name: product_category
+          joinColumns:
+            category_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            product_id:
+              referencedColumnName: id

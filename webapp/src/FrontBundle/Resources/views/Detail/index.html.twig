@@ -1,0 +1,136 @@
+{% extends 'FrontBundle:Default:index.html.twig' %}
+
+{% block content %}
+<!-- grow -->
+<div class="grow">
+    <div class="container">
+        <h2>{{ product.name }}</h2>
+    </div>
+</div>
+<!-- grow -->
+<div class="product">
+    <div class="container">
+
+        <div class="product-price1">
+            <div class="top-sing">
+                <div class="col-md-7 single-top">
+                    <script defer src="{{ asset('bundles/front/js/imagezoom.js') }}"></script>
+                    <!-- FlexSlider -->
+                    <script defer src="{{ asset('bundles/front/js/jquery.flexslider.js') }}"></script>
+                    <link rel="stylesheet" href="{{ asset('bundles/front/css/flexslider.css') }}" type="text/css" media="screen" />
+
+                    {% set key = 0 %}
+                    {% for pColor in productColors %}
+                        {% if pColor.status == 1 %}
+                        <div class="flexslider{{ key }} thumb-slider" data-value="{{ key }}" {% if key != 0 %} style="display: none" {% endif %}>
+                            <ul class="slides">
+                                {% if pColor.images|jsonDecode|length > 0 %}
+                                    {% for img in pColor.images|jsonDecode %}
+                                    <li data-thumb="{{ img|getImage(webPath) }}">
+                                        <div class="thumb-image"> <img src="{{ img|getImage(webPath) }}" data-imagezoom="true" class="img-responsive"> </div>
+                                    </li>
+                                    {% endfor %}
+                                {% endif %}
+                            </ul>
+                        </div>
+
+                        <div class="clearfix"> </div>
+                        <!-- slide -->
+
+                        <script>
+                            // Can also be used with $(document).ready()
+                            $(window).load(function() {
+                                $('.flexslider0').flexslider({
+                                    animation: "slide",
+                                    controlNav: "thumbnails"
+                                });
+                            });
+                        </script>
+                            {% set key = key + 1 %}
+                        {% endif  %}
+                    {% endfor %}
+                </div>
+                <div class="col-md-5 single-top-in simpleCart_shelfItem">
+                    <div class="single-para ">
+                        <h4>{{ product.name }}</h4>
+                        <div class="star-on">
+
+                            {#<div class="review">#}
+                                {#<a href="#"> 1 customer review </a>#}
+                            {#</div>#}
+                            <div class="clearfix"> </div>
+                        </div>
+
+                        {% set key = 0 %}
+                        {% for pColor in productColors %}
+                            {% if pColor.status == 1 %}
+                                <h5 class="item_price" data-value="{{ key }}" {% if key != 0 %} style="display: none" {% endif %}>{{ pColor.price|number_format(0, ',', '.') }}đ</h5>
+                                {% set key = key + 1 %}
+                            {% endif  %}
+                        {% endfor %}
+
+                        <p>{{ product.description }}</p>
+                        <div class="available">
+                            <ul>
+                                <li>Color
+                                    <select onchange="changeColorEffect(this)">
+                                    {% set key = 0 %}
+                                    {% for pColor in productColors %}
+                                        {% if pColor.status == 1 %}
+                                            <option value="{{ key }}">{{ pColor.color.name }}</option>
+                                            {% set key = key + 1 %}
+                                        {% endif  %}
+                                    {% endfor %}
+                                    </select>
+                                </li>
+                                {#<li class="size-in">Size<select>#}
+                                        {#<option>Large</option>#}
+                                        {#<option>Medium</option>#}
+                                        {#<option>small</option>#}
+                                        {#<option>Large</option>#}
+                                        {#<option>small</option>#}
+                                    {#</select></li>#}
+                                <div class="clearfix"> </div>
+                            </ul>
+                        </div>
+
+                        <a href="#" class="add-cart item_add">ADD TO CART</a>
+
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <!---->
+
+            <div style="display: block; height: 20px"></div>
+
+            <div class="container">
+                {{ product.content|purifier|raw }}
+            </div>
+
+            <div class=" bottom-product">
+                <p class="h3">Sản phẩm cùng loại</p>
+                {% for relatedProd in relatedProducts %}
+                <div class="col-md-4 bottom-cd simpleCart_shelfItem">
+                    <div class="product-at ">
+                        <a href="{{ path('product_detail', {slug: relatedProd.slug}) }}"><img class="img-responsive" src="{{ relatedProd.imagePath|getImage(webPath) }}" alt="">
+                            <div class="pro-grid">
+                                <span class="buy-in">Buy Now</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="tun"><span>{{ relatedProd.description|truncate }}</span><br>{{ relatedProd.name }}</p>
+                    <div class="ca-rt">
+                        <a href="{{ path('product_detail', {slug: relatedProd.slug}) }}" class="item_add"><p class="number item_price"><i> </i>{{ serviceHelper.getProductPrice(relatedProd) }}</p></a>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!--//content-->
+{% endblock %}

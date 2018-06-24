@@ -1,0 +1,61 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/service_container.html
+
+sonata_admin:
+    title:      My Shop
+    title_logo: bundles/app/img/yh.png
+    dashboard:
+        groups:
+            admin.group.content:
+                label: 'Nội dung'
+                label_catalogue: AppBundle
+                items:
+                    - admin.product
+                    - admin.category
+            admin.group.user:
+                label: 'Người dùng'
+                icon:   '<i class="fa fa-users"></i>'
+                label_catalogue: AppBundle
+                items:
+                    - sonata.user.admin.user
+                    - sonata.user.admin.group
+
+parameters:
+#    parameter_name: value
+
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    admin.product:
+        class: AppBundle\Admin\ProductAdmin
+        arguments: [~, AppBundle\Entity\Product, AppBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Product }
+        calls:
+            - [ setTemplate, [edit, AppBundle:product:edit_plus.html.twig]]
+
+    admin.category:
+        class: AppBundle\Admin\CategoryAdmin
+        arguments: [~, AppBundle\Entity\Category, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Category }
+        calls:
+            - [ setTemplate, [edit, AppBundle:product:edit_plus.html.twig]]
+
+    product.update:
+        class: AppBundle\EventListener\UpdateEntityListener
+        tags:
+            - { name: doctrine.event_listener, event: preUpdate }
+        arguments: [ %kernel.root_dir% ]
+
+    product.color.constraint:
+        class: AppBundle\Validator\Constraints\ConstraintColorValidator
+        arguments:
+            entityManager: "@doctrine.orm.entity_manager"
+        tags:
+            - { name: validator.constraint_validator, alias: ConstraintColor }
+
+# My define services
+    service.helper:
+        class: AppBundle\Service\HelperService

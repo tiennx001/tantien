@@ -1,0 +1,337 @@
+<?php
+
+namespace AppBundle\Entity;
+
+/**
+ * StokeLog
+ */
+class StokeLog
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var integer
+     */
+    private $product_id;
+
+    /**
+     * @var float
+     */
+    private $price;
+
+    /**
+     * @var integer
+     */
+    private $quantity;
+
+    /**
+     * @var float
+     */
+    private $total_money;
+
+    /**
+     * @var integer
+     */
+    private $status;
+
+    /**
+     * @var \DateTime
+     */
+    private $stoke_time;
+
+    /**
+     * @var \DateTime
+     */
+    private $created_at;
+
+    /**
+     * @var \DateTime
+     */
+    private $updated_at;
+
+    /**
+     * @var \AppBundle\Entity\Product
+     */
+    private $product;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set productId
+     *
+     * @param integer $productId
+     *
+     * @return StokeLog
+     */
+    public function setProductId($productId)
+    {
+        $this->product_id = $productId;
+
+        return $this;
+    }
+
+    /**
+     * Get productId
+     *
+     * @return integer
+     */
+    public function getProductId()
+    {
+        return $this->product_id;
+    }
+
+    /**
+     * Set price
+     *
+     * @param float $price
+     *
+     * @return StokeLog
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return float
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set quantity
+     *
+     * @param integer $quantity
+     *
+     * @return StokeLog
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * Get quantity
+     *
+     * @return integer
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * Set totalMoney
+     *
+     * @param float $totalMoney
+     *
+     * @return StokeLog
+     */
+    public function setTotalMoney($totalMoney)
+    {
+        $this->total_money = $totalMoney;
+
+        return $this;
+    }
+
+    /**
+     * Get totalMoney
+     *
+     * @return float
+     */
+    public function getTotalMoney()
+    {
+        return $this->total_money;
+    }
+
+    /**
+     * Set status
+     *
+     * @param integer $status
+     *
+     * @return StokeLog
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return integer
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set stokeTime
+     *
+     * @param \DateTime $stokeTime
+     *
+     * @return StokeLog
+     */
+    public function setStokeTime($stokeTime)
+    {
+        $this->stoke_time = $stokeTime;
+
+        return $this;
+    }
+
+    /**
+     * Get stokeTime
+     *
+     * @return \DateTime
+     */
+    public function getStokeTime()
+    {
+        return $this->stoke_time;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return StokeLog
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return StokeLog
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set product
+     *
+     * @param \AppBundle\Entity\Product $product
+     *
+     * @return StokeLog
+     */
+    public function setProduct(\AppBundle\Entity\Product $product = null)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * Get product
+     *
+     * @return \AppBundle\Entity\Product
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+
+    /**
+     * @var string
+     */
+    private $stoke_code;
+
+
+    /**
+     * Set stokeCode
+     *
+     * @param string $stokeCode
+     *
+     * @return StokeLog
+     */
+    public function setStokeCode($stokeCode)
+    {
+        $this->stoke_code = $stokeCode;
+
+        return $this;
+    }
+
+    /**
+     * Get stokeCode
+     *
+     * @return string
+     */
+    public function getStokeCode()
+    {
+        return $this->stoke_code;
+    }
+
+    public function updatedTimestamps()
+    {
+        $this->setUpdatedAt(new \DateTime('now'));
+
+        if ($this->getCreatedAt() == null) {
+            $this->setCreatedAt(new \DateTime('now'));
+        }
+    }
+
+    /**
+     * Thuc hien cap nhat du lieu cac truong
+     */
+    public function updateFields()
+    {
+        // Update stoke code
+        $prefix = 'S';
+        $this->setStokeCode($prefix . time());
+        // Update total money
+        $this->setTotalMoney($this->getPrice() * $this->getQuantity());
+    }
+}

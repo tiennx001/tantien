@@ -1,0 +1,38 @@
+AppBundle\Entity\Product:
+    type: entity
+    repositoryClass: FrontBundle\Model\ProductRepository
+    table: product
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name: { type: string, length: 255 }
+        description: { type: text}
+        content: { type: text}
+        image_show: { type: string, length: 255 }
+        image_path: { type: string, length: 255 }
+        status: { type: boolean, default: false }
+        priority: { type: integer, default: 0 }
+        slug: { type: string, length: 255 }
+        created_at: { type: datetime, notnull: true }
+        updated_at: { type: datetime, notnull: true }
+        created_by: { type: integer, notnull: true }
+        updated_by: { type: integer, notnull: true }
+    lifecycleCallbacks:
+      prePersist:   [ updatedTimestamps ]
+      preUpdate:    [ updatedTimestamps ]
+    manyToMany:
+      categories:
+        targetEntity: Category
+        mappedBy: products
+      colors:
+        targetEntity: Color
+        mappedBy: products
+    oneToMany:
+      productColors:
+        targetEntity: ProductColor
+        mappedBy: product
+      productCategories:
+        targetEntity: ProductCategory
+        mappedBy: product

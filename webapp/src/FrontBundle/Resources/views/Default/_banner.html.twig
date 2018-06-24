@@ -1,0 +1,41 @@
+{% block header %}
+    <div class="banner">
+        <div class="container">
+            <script src="{{ asset('bundles/front/js/responsiveslides.min.js') }}"></script>
+            <script>
+                $(function () {
+                    $("#slider").responsiveSlides({
+                        auto: true,
+                        nav: true,
+                        speed: 500,
+                        namespace: "callbacks",
+                        pager: true
+                    });
+                });
+            </script>
+            <div id="top" class="callbacks_container">
+                <ul class="rslides" id="slider">
+                    <li>
+                        <div class="banner-text">
+                            <h3>Sản phẩm đặc trưng</h3>
+                            <p>Sản phẩm đặc trưng dành riêng cho căn nhà của bạn.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-text">
+                            <h3>Sản phẩm nhập khẩu</h3>
+                            <p>Những sản phẩm với chất lượng và mẫu mã đẹp nhất được nhập khẩu từ Châu Âu.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-text">
+                            <h3>Sản phẩm sáng tạo</h3>
+                            <p>Hãy thỏa sức sáng tạo với không gian riêng của bạn.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

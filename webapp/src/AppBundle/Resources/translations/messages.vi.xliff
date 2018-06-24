@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="">
+        <body>
+            <trans-unit id="1">
+                <source>admin_product</source>
+                <target>Sản phẩm</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>stoke_log_create_action_label</source>
+                <target>Nhập kho</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

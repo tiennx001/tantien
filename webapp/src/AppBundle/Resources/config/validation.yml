@@ -1,0 +1,4 @@
+AppBundle\Entity\Product:
+    properties:
+        prod_colors:
+            - AppBundle\Validator\Constraints\ConstraintColor: ~

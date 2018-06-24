@@ -1,0 +1,535 @@
+<?php
+
+namespace AppBundle\Entity;
+
+/**
+ * Cp
+ */
+class Cp
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var string
+     */
+    private $description;
+
+    /**
+     * @var boolean
+     */
+    private $status;
+
+    /**
+     * @var string
+     */
+    private $fullname;
+
+    /**
+     * @var string
+     */
+    private $address;
+
+    /**
+     * @var string
+     */
+    private $email;
+
+    /**
+     * @var string
+     */
+    private $phone;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $products;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Cp
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Cp
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set status
+     *
+     * @param boolean $status
+     *
+     * @return Cp
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return boolean
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set fullname
+     *
+     * @param string $fullname
+     *
+     * @return Cp
+     */
+    public function setFullname($fullname)
+    {
+        $this->fullname = $fullname;
+
+        return $this;
+    }
+
+    /**
+     * Get fullname
+     *
+     * @return string
+     */
+    public function getFullname()
+    {
+        return $this->fullname;
+    }
+
+    /**
+     * Set address
+     *
+     * @param string $address
+     *
+     * @return Cp
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Cp
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     *
+     * @return Cp
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Add product
+     *
+     * @param \AppBundle\Entity\Product $product
+     *
+     * @return Cp
+     */
+    public function addProduct(\AppBundle\Entity\Product $product)
+    {
+        $this->products[] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Remove product
+     *
+     * @param \AppBundle\Entity\Product $product
+     */
+    public function removeProduct(\AppBundle\Entity\Product $product)
+    {
+        $this->products->removeElement($product);
+    }
+
+    /**
+     * Get products
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
+    /**
+     * @var float
+     */
+    private $response_rate;
+
+    /**
+     * @var integer
+     */
+    private $response_time;
+
+    /**
+     * @var float
+     */
+    private $rating_star;
+
+    /**
+     * @var integer
+     */
+    private $total_product;
+
+    /**
+     * @var integer
+     */
+    private $prepare_time;
+
+    /**
+     * @var integer
+     */
+    private $total_follower;
+
+    /**
+     * @var \DateTime
+     */
+    private $created_at;
+
+    /**
+     * @var \DateTime
+     */
+    private $updated_at;
+
+
+    /**
+     * Set responseRate
+     *
+     * @param float $responseRate
+     *
+     * @return Cp
+     */
+    public function setResponseRate($responseRate)
+    {
+        $this->response_rate = $responseRate;
+
+        return $this;
+    }
+
+    /**
+     * Get responseRate
+     *
+     * @return float
+     */
+    public function getResponseRate()
+    {
+        return $this->response_rate;
+    }
+
+    /**
+     * Set responseTime
+     *
+     * @param integer $responseTime
+     *
+     * @return Cp
+     */
+    public function setResponseTime($responseTime)
+    {
+        $this->response_time = $responseTime;
+
+        return $this;
+    }
+
+    /**
+     * Get responseTime
+     *
+     * @return integer
+     */
+    public function getResponseTime()
+    {
+        return $this->response_time;
+    }
+
+    /**
+     * Set ratingStar
+     *
+     * @param float $ratingStar
+     *
+     * @return Cp
+     */
+    public function setRatingStar($ratingStar)
+    {
+        $this->rating_star = $ratingStar;
+
+        return $this;
+    }
+
+    /**
+     * Get ratingStar
+     *
+     * @return float
+     */
+    public function getRatingStar()
+    {
+        return $this->rating_star;
+    }
+
+    /**
+     * Set totalProduct
+     *
+     * @param integer $totalProduct
+     *
+     * @return Cp
+     */
+    public function setTotalProduct($totalProduct)
+    {
+        $this->total_product = $totalProduct;
+
+        return $this;
+    }
+
+    /**
+     * Get totalProduct
+     *
+     * @return integer
+     */
+    public function getTotalProduct()
+    {
+        return $this->total_product;
+    }
+
+    /**
+     * Set prepareTime
+     *
+     * @param integer $prepareTime
+     *
+     * @return Cp
+     */
+    public function setPrepareTime($prepareTime)
+    {
+        $this->prepare_time = $prepareTime;
+
+        return $this;
+    }
+
+    /**
+     * Get prepareTime
+     *
+     * @return integer
+     */
+    public function getPrepareTime()
+    {
+        return $this->prepare_time;
+    }
+
+    /**
+     * Set totalFollower
+     *
+     * @param integer $totalFollower
+     *
+     * @return Cp
+     */
+    public function setTotalFollower($totalFollower)
+    {
+        $this->total_follower = $totalFollower;
+
+        return $this;
+    }
+
+    /**
+     * Get totalFollower
+     *
+     * @return integer
+     */
+    public function getTotalFollower()
+    {
+        return $this->total_follower;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return Cp
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Cp
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+    /**
+     * @var float
+     */
+    private $rating;
+
+
+    /**
+     * Set rating
+     *
+     * @param float $rating
+     *
+     * @return Cp
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    /**
+     * Get rating
+     *
+     * @return float
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+}

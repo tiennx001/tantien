@@ -1,0 +1,726 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Symfony\Component\DependencyInjection\Container;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
+/**
+ * Product
+ */
+class Product
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var string
+     */
+    private $description;
+
+    /**
+     * @var string
+     */
+    private $content;
+
+    /**
+     * @var string
+     */
+    private $image_path;
+
+    /**
+     * @var boolean
+     */
+    private $status;
+
+    /**
+     * @var integer
+     */
+    private $priority;
+
+    /**
+     * @var string
+     */
+    private $slug;
+
+    /**
+     * @var \DateTime
+     */
+    private $created_at;
+
+    /**
+     * @var \DateTime
+     */
+    private $updated_at;
+
+    /**
+     * @var integer
+     */
+    private $created_by;
+
+    /**
+     * @var integer
+     */
+    private $updated_by;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $categories;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $colors;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->colors = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Product
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Product
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     *
+     * @return Product
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * Set imagePath
+     *
+     * @param string $imagePath
+     *
+     * @return Product
+     */
+    public function setImagePath($imagePath)
+    {
+        $this->image_path = $imagePath;
+
+        return $this;
+    }
+
+    /**
+     * Get imagePath
+     *
+     * @return string
+     */
+    public function getImagePath()
+    {
+        return $this->image_path;
+    }
+
+    /**
+     * Set status
+     *
+     * @param boolean $status
+     *
+     * @return Product
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return boolean
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set priority
+     *
+     * @param integer $priority
+     *
+     * @return Product
+     */
+    public function setPriority($priority)
+    {
+        $this->priority = $priority;
+
+        return $this;
+    }
+
+    /**
+     * Get priority
+     *
+     * @return integer
+     */
+    public function getPriority()
+    {
+        return $this->priority;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Product
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return Product
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Product
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param integer $createdBy
+     *
+     * @return Product
+     */
+    public function setCreatedBy($createdBy)
+    {
+        $this->created_by = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return integer
+     */
+    public function getCreatedBy()
+    {
+        return $this->created_by;
+    }
+
+    /**
+     * Set updatedBy
+     *
+     * @param integer $updatedBy
+     *
+     * @return Product
+     */
+    public function setUpdatedBy($updatedBy)
+    {
+        $this->updated_by = $updatedBy;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedBy
+     *
+     * @return integer
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updated_by;
+    }
+
+    /**
+     * Add category
+     *
+     * @param \AppBundle\Entity\Category $category
+     *
+     * @return Product
+     */
+    public function addCategory(\AppBundle\Entity\Category $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \AppBundle\Entity\Category $category
+     */
+    public function removeCategory(\AppBundle\Entity\Category $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * Add color
+     *
+     * @param \AppBundle\Entity\Color $color
+     *
+     * @return Product
+     */
+    public function addColor(\AppBundle\Entity\Color $color)
+    {
+        $this->colors[] = $color;
+
+        return $this;
+    }
+
+    /**
+     * Remove color
+     *
+     * @param \AppBundle\Entity\Color $color
+     */
+    public function removeColor(\AppBundle\Entity\Color $color)
+    {
+        $this->categories->removeElement($color);
+    }
+
+    /**
+     * Get colors
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getColors()
+    {
+        return $this->colors;
+    }
+
+    /**
+     * Unmapped property to handle file uploads
+     */
+    private $file;
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    private $new_path;
+    const SERVER_PATH_TO_IMAGE_FOLDER = '/uploads/product/images';
+
+    /**
+     * Manages the copying of the file to the relevant place on the server
+     * @param string $webPath
+     */
+    public function upload($webPath)
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->getFile()) {
+            return;
+        }
+
+        // Set current update time
+        $this->refreshUpdated();
+
+        // we use the original file name here but you should
+        // sanitize it at least to avoid any security issues
+
+        // move takes the target directory and target filename as params
+        $uploadFolder = self::SERVER_PATH_TO_IMAGE_FOLDER . '/' . date('Y') . '/' . date('m') . '/' . date('d');
+        $this->getFile()->move(
+            $webPath . $uploadFolder,
+            $this->getFile()->getClientOriginalName()
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->filename = $this->getFile()->getClientOriginalName();
+
+        // Save the path to DB
+        $this->new_path = $uploadFolder . '/' . $this->filename;
+        $this->setImagePath($this->new_path);
+
+        // clean up the file property as you won't need it anymore
+        $this->setFile(null);
+    }
+
+    /**
+     * Updates the hash value to force the preUpdate and postUpdate events to fire
+     */
+    public function refreshUpdated()
+    {
+        $this->setUpdatedAt(new \DateTime('now'));
+    }
+
+    public function updatedTimestamps()
+    {
+        $this->setUpdatedAt(new \DateTime('now'));
+
+        if ($this->getCreatedAt() == null) {
+            $this->setCreatedAt(new \DateTime('now'));
+        }
+    }
+
+    /**
+     * Thuc hien cap nhat du lieu cac truong
+     * @param $container
+     */
+    public function processValues(Container $container)
+    {
+        $user = $container->get('security.context')->getToken()->getUser();
+        // Created and updated by
+        $this->setUpdatedBy($user->getId());
+        if ($this->getCreatedBy() == null) {
+            $this->setCreatedBy($user->getId());
+        }
+
+        // Update slug
+        $helperClass = $container->get('service.helper');
+        $slug = $helperClass->slugify($this->getName());
+        $this->setSlug($slug);
+
+        // Process color values
+        $entityManager = $container->get('doctrine.orm.entity_manager');
+        $pColorRepo = $entityManager->getRepository(ProductColor::class);
+        if ($this->getUpdatedAt()) {
+            // Xoa nhung ban ghi khong co trong danh sach post len
+            $postList = array();
+            foreach ($this->getProdColors() as $postProdColor) {
+                $postList[] = $postProdColor['color'];
+            }
+            $pColorRepo->deleteAllByProductId($this->getId(), $postList);
+        }
+        // Thuc hien them du lieu moi
+        foreach ($this->getProdColors() as $postProdColor) {
+            $prodColorObj = $pColorRepo->getObjByProductIdAndColorId($this->getId(), $postProdColor['color']);
+            if ($prodColorObj) {
+                $prodColorObj->setQuantity($postProdColor['quantity']);
+                $prodColorObj->setPrice($postProdColor['price']);
+                $entityManager->merge($prodColorObj);
+            } else {
+                $prodColorObj = new ProductColor();
+                $prodColorObj->setProduct($this);
+                $prodColorObj->setColor($entityManager->getReference('AppBundle:Color', $postProdColor['color']));
+                $prodColorObj->setQuantity($postProdColor['quantity']);
+                $prodColorObj->setPrice($postProdColor['price']);
+                $prodColorObj->setStatus(1);
+                $entityManager->persist($this);
+                $entityManager->persist($prodColorObj);
+            }
+        }
+        $entityManager->flush();
+    }
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $productColors;
+
+
+    /**
+     * Add productColor
+     *
+     * @param \AppBundle\Entity\ProductColor $productColor
+     *
+     * @return Product
+     */
+    public function addProductColor(\AppBundle\Entity\ProductColor $productColor)
+    {
+        $this->productColors[] = $productColor;
+
+        return $this;
+    }
+
+    /**
+     * Remove productColor
+     *
+     * @param \AppBundle\Entity\ProductColor $productColor
+     */
+    public function removeProductColor(\AppBundle\Entity\ProductColor $productColor)
+    {
+        $this->productColors->removeElement($productColor);
+    }
+
+    /**
+     * Get productColors
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProductColors()
+    {
+        return $this->productColors;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $productCategories;
+
+
+    /**
+     * Add productCategory
+     *
+     * @param \AppBundle\Entity\ProductCategory $productCategory
+     *
+     * @return Product
+     */
+    public function addProductCategory(\AppBundle\Entity\ProductCategory $productCategory)
+    {
+        $this->productCategories[] = $productCategory;
+
+        return $this;
+    }
+
+    /**
+     * Remove productCategory
+     *
+     * @param \AppBundle\Entity\ProductCategory $productCategory
+     */
+    public function removeProductCategory(\AppBundle\Entity\ProductCategory $productCategory)
+    {
+        $this->productCategories->removeElement($productCategory);
+    }
+
+    /**
+     * Get productCategories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProductCategories()
+    {
+        return $this->productCategories;
+    }
+    /**
+     * @var string
+     */
+    private $image_show;
+
+
+    /**
+     * Set imageShow
+     *
+     * @param string $imageShow
+     *
+     * @return Product
+     */
+    public function setImageShow($imageShow)
+    {
+        $this->image_show = $imageShow;
+
+        return $this;
+    }
+
+    /**
+     * Get imageShow
+     *
+     * @return string
+     */
+    public function getImageShow()
+    {
+        return $this->image_show;
+    }
+
+    private $multiple_file;
+
+    /**
+     * Set multipleFile
+     *
+     * @param string $multipleFile
+     *
+     * @return Product
+     */
+    public function setMultipleFile($multipleFile)
+    {
+        $this->multiple_file = $multipleFile;
+
+        return $this;
+    }
+
+    /**
+     * Get multipleFile
+     *
+     * @return string
+     */
+    public function getMultipleFile()
+    {
+        return $this->multiple_file;
+    }
+
+    /**
+     * Unmapped property to handle product colors
+     */
+    private $prod_colors;
+
+    /**
+     * setProdColors
+     *
+     * @param array $prod_colors
+     *
+     * @return mixed
+     */
+    public function setProdColors(array $prod_colors)
+    {
+        $this->prod_colors = $prod_colors;
+
+        return $this;
+    }
+
+    /**
+     * getProdColors
+     *
+     * @return mixed
+     */
+    public function getProdColors()
+    {
+        return $this->prod_colors;
+    }
+}

@@ -1,0 +1,15 @@
+homepage:
+    path:     /
+    defaults: { _controller: FrontBundle:Home:index }
+
+product_detail:
+    path:     /san-pham/{slug}
+    defaults: { _controller: FrontBundle:Detail:index }
+
+search:
+    path:     /tim-kiem/{page}
+    defaults: { _controller: FrontBundle:Search:index, page: 1 }
+
+category:
+    path:     /danh-muc/{cateSlug}/{page}
+    defaults: { _controller: FrontBundle:Category:index, page: 1 }

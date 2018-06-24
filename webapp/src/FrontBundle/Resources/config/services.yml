@@ -1,0 +1,9 @@
+services:
+  twig.get.image.extension:
+    class: FrontBundle\Twig\TwigExtension
+    tags:
+      - { name: twig.extension }
+
+# My define services
+    service.helper:
+        class: FrontBundle\Service\HelperService
