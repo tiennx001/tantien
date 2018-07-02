@@ -254,7 +254,7 @@ a.add-cart:hover {
 .navbar {
 	background: #87ceeb;
 	padding: 0 1rem;
-	border-radius: 5px;
+	border-radius: 5px 5px 0 0;
 }
 .navbar .nav-item {
 	display: block;
