@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi" lang="vi">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Công ty TNHH Đầu tư và Phát triển Công nghệ Tân Tiến</title>
     <link rel="shortcut icon" href="" type="image/x-icon">
@@ -17,21 +18,39 @@
 <body>
 <div class="content">
     <div class="row top-header">
-        <div class="col-md-4 col-sm-12">
-            <div class="logo"><img alt="" src="images/logo.jpg"/></div>
+        <div class="col-md-3 col-sm-12 col-12">
+            <div class="logo"><img alt="" src="images/logo.jpg" /></div>
         </div>
-        <div class="col-md-6 col-sm-12">
-            <div class="search"><input type="text" class="form-control"/>
-                <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-            </div>
+        <div class="col-md-6 col-sm-12 col-12">
+            <div class="search"><input type="text" class="form-control" /><button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button></div>
         </div>
-        <div class="col-md-2 col-sm-12">
+        <div class="col-md-3 col-sm-12 col-12">
             <a href="#" class="shopping-cart">
                 <i class="fa fa-cart-plus"></i>
                 <span>Giỏ hàng</span>
             </a>
         </div>
     </div>
+
+    <div class="row top-header-mobile">
+        <div class="col-sm-6 col-6">
+            <div class="logo"><img alt="" src="images/logo.jpg" /></div>
+        </div>
+        <div class="col-sm-6 col-6">
+            <div class="search">
+                <input type="text" class="form-control" /><button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+            </div>
+            <a href="#" class="shopping-cart">
+                <i class="fa fa-cart-plus"></i>
+            </a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).on('click', '.search button', function() {
+            $('.search input').toggleClass('open');
+        });
+    </script>
 
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#"><i class="fa fa-home"></i></a>
@@ -81,9 +100,26 @@
                         <th width="40%">Sản phẩm</th>
                         <th>Giá thị trường</th>
                         <th>Giá bán</th>
-                        <th>Số lượng</th>
+                        <th width="100">Số lượng</th>
                         <th>Thành tiền</th>
                         <th>Thao tác</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="cart-prod-img"><img alt="" src="images/laptop.png" /></div>
+                            <span class="card-prod-title">Laptop Lenovo Ideapad 320 14ISK 80XG0083VN (Black)- Màn hình full HD, mỏng, bảo hành onsite</span>
+                        </td>
+                        <td>1.000.000đ</td>
+                        <td>750.000đ</td>
+                        <td>
+                            <div class="num-prod-inp">
+                                <i class="fa fa-minus-circle"></i>
+                                <input type="text" class="form-control"/>
+                                <i class="fa fa-plus-circle"></i>
+                            </div>
+                        </td>
+                        <td>1.500.000đ</td>
+                        <td><a href="javascript:void(0);"><i class="fa fa-trash-o"></i> Xóa</a></td>
                     </tr>
                     <tr>
                         <td>
@@ -110,41 +146,41 @@
     <div class="address">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 form-wrapper">
+                <div class="col-md-12 col-sm-12 col-12 form-wrapper">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 col-sm-12 col-12">
                             <label for="fullname">Họ và tên (*)</label>
                             <input id="fullname" name="fullname" class="form-control" />
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-6 col-6">
                             <label for="phone">Điện thoại liên hệ (*)</label>
                             <input id="phone" name="phone" class="form-control" />
                         </div>
                     </div>
                     <hr/>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-sm-12 col-12">
                             <label for="city">Tỉnh/Thành phố (*)</label>
                             <select id="city" name="city" class="form-control">
                                 <option value="">Hà Nội</option>
                                 <option value="">TP. Hồ Chí Minh</option>
                             </select>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-sm-12 col-12">
                             <label for="district">Quận/Huyện (*)</label>
                             <select id="district" name="district" class="form-control">
                                 <option value="">Quận 1</option>
                                 <option value="">Quận 8</option>
                             </select>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-12 col-12">
                             <label for="address">Địa chỉ chi tiết (*)</label>
                             <input id="address" name="address" class="form-control" />
                         </div>
                     </div>
                     <br/>
                     <div class="row text-center">
-                        <div class="col-md-12"><button class="btn btn-primary" type="submit">Xác nhận</button></div>
+                        <div class="col-md-12 col-sm-12 col-12"><button class="btn btn-primary" type="submit">Xác nhận</button></div>
                     </div>
                 </div>
             </div>
@@ -154,7 +190,7 @@
     <hr/>
     <div id="footer">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-12 col-12">
                 <strong>CÔNG TY TNHH ĐẦU TƯ & PHÁT TRIỂN CN TÂN TIẾN</strong>
                 <div>Hà Nội: Tổ 8 - TT Chi Đông - Mê Linh - Hà Nội</div>
                 <div>TP HCM: Sky Graden 1 - Đại Lô Nguyễn Văn Linh - Quận 7 - HCM</div>
@@ -162,13 +198,13 @@
                 <div>GPĐKKD số 0401524138 do Sở KHĐT Tp.Đà Nẵng cấp</div>
                 <div>GCNCSĐĐKKD TPCN số 176/2016/ATTP/-CNĐK do CC AT&VSTP Tp.Đà Nẵng cấp ngày 06/06/2016</div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-12 col-12">
                 <strong>HỖ TRỢ</strong>
                 <div>Hướng dẫn thanh toán</div>
                 <div>Chính sách đổi trả</div>
                 <div>Chính sách giao nhận</div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-12 col-12">
                 <strong>LIÊN HỆ</strong>
                 <div>HOTLINE: 0989.335.466</div>
                 <div><a href="#"><img src="https://shop.viettel.vn/img/sec52_img_5.png" alt="Đã thông báo bộ công thương"></a></div>
